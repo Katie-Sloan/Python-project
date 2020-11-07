@@ -10,6 +10,8 @@ manufacturer_repository.save(manufacturer_1)
 manufacturer_2 = Manufacturer("Rowntree's")
 manufacturer_repository.save(manufacturer_2)
 
+manufacturer_repository.select_all()
+
 product_1 = Product("Dairy Milk")
 product_repository.save(product_1)
 product_2 = Product("Fruit Pastilles")
