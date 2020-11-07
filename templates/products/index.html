@@ -20,7 +20,7 @@
     </div>
     
     <div>
-        {% if product.stock_quantity is less than 6 %}
+        {% if product.stock_quantity < 6 %}
         <i class="fas fa-exclamation-triangle" style="color:amber" aria-hidden="true"></i>                
         {% endif %}
     </div>
