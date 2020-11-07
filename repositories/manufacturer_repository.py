@@ -22,3 +22,39 @@ def select_all():
         manufacturers.append(manufacturer)
     return manufacturers
 
+def select(id):
+    manufacturer = None
+    sql = "SELECT * FROM manufacturers WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+
+    if result is not None:
+        manufacturer = Manufacturer(result['name'])
+    return manufacturer
+
+def delete_all():
+    sql = DELETE  FROM manufacturers"
+    run_sql(sql)
+
+def delete(id):
+    sql = "DELETE  FROM manufacturers WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
+
+def update(manufacturer):
+    sql = "UPDATE manufacturers SET (name) = (%s) WHERE id = %s"
+    values = [manufacturer.name]
+    run_sql(sql, values)
+
+def products(manufacturer):
+    products = []
+
+    sql = "SELECT * FROM products WHERE manufacturer_id = %s"
+    values = [manufacturer.id]
+    results = run_sql(sql, values)
+
+    for row in results:
+        product = Product(row['name'], row['description'], row['stock_quantity'], row['buying_cost'], row['selling_price'], manufacturer)
+        products.append(product)
+    return products
+
