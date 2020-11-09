@@ -5,7 +5,9 @@
 {% for product in products %}
     
     <div>
-        <p>{{product.name}}</p>
+        <p>               
+            <a href="/products/{{product.id}}">{{product.name}}</a>
+        </p>
         <p>{{product.description}}</p>
         <p>{{product.stock_quantity}}</p>
         <p>{{product.buying_cost}}</p>

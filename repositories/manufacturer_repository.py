@@ -19,7 +19,7 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        manufacturer = Manufacturer(row['name'])
+        manufacturer = Manufacturer(row['name'], row['id'])
         manufacturers.append(manufacturer)
     return manufacturers
 
@@ -30,7 +30,7 @@ def select(id):
     result = run_sql(sql, values)[0]
 
     if result is not None:
-        manufacturer = Manufacturer(result['name'])
+        manufacturer = Manufacturer(result['name'], result['id'])
     return manufacturer
 
 def delete_all():
@@ -47,15 +47,15 @@ def update(manufacturer):
     values = [manufacturer.name, manufacturer.id]
     run_sql(sql, values)
 
-# def products(manufacturer):
-#     products = []
+def products(manufacturer):
+    products = []
 
-#     sql = "SELECT * FROM products WHERE manufacturer_id = %s"
-#     values = [manufacturer.id]
-#     results = run_sql(sql, values)
+    sql = "SELECT * FROM products WHERE manufacturer_id = %s"
+    values = [manufacturer.id]
+    results = run_sql(sql, values)
 
-#     for row in results:
-#         product = Product(row['name'], row['description'], row['stock_quantity'], row['buying_cost'], row['selling_price'], manufacturer)
-#         products.append(product)
-#     return products
+    for row in results:
+        product = Product(row['name'], row['description'], row['stock_quantity'], row['buying_cost'], row['selling_price'], row['manufacturer_id'], row['id'])
+        products.append(product)
+    return products
 

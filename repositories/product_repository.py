@@ -20,7 +20,7 @@ def select_all():
 
     for row in results:
         manufacturer = manufacturer_repository.select(row['manufacturer_id'])
-        product = Product(row['name'], row['description'], row['stock_quantity'], row['buying_cost'], row['selling_price'], manufacturer)
+        product = Product(row['name'], row['description'], row['stock_quantity'], row['buying_cost'], row['selling_price'], manufacturer, row['id'])
         products.append(product)
     return products
 
@@ -31,8 +31,8 @@ def select(id):
     result = run_sql(sql, values)[0]
 
     if result is not None:
-        manufacturer = manufacturer_repository.select(result['product_id'])
-        product = Product(result['name'], result ['description'], result['stock_quantity'], result['buying_cost'], result['selling_price'], manufacturer)
+        manufacturer = manufacturer_repository.select(result['manufacturer_id'])
+        product = Product(result['name'], result ['description'], result['stock_quantity'], result['buying_cost'], result['selling_price'], manufacturer, result['id'])
     return product
 
 def delete_all():

@@ -30,7 +30,7 @@ def create_product():
     return redirect('/products')
 
 @products_blueprint.route("/products/<id>", methods=["GET"])
-def show_task(id):
+def show_product(id):
     product = product_repository.select(id)
     return render_template("products/show.html", product = product)
 
