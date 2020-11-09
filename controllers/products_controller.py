@@ -50,8 +50,8 @@ def update_product(id):
     manufacturer_id = request.form["manufacturer_id"]
 
     manufacturer = manufacturer_repository.select(manufacturer_id)
-    product = Product(name, description, stock_quantity, buying_cost, selling_price, manufacturer_id)
-    product_repository.save(product)
+    product = Product(name, description, stock_quantity, buying_cost, selling_price, manufacturer, id)
+    product_repository.update(product)
     return redirect('/products')
 
 @products_blueprint.route("/products/<id>/delete", methods=["POST"])

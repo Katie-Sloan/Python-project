@@ -5,12 +5,14 @@
 {% for manufacturer in manufacturers %}
     
     <div>
-        <p>{{manufacturer.name}}</p>
+        <p>
+            <a href="/manufacturers/{{manufacturer.id}}">{{manufacturer.name}}</a>
+        </p>
     </div>
     
     <div>
         <form class= "delete-form" action="/manufacturers/{{manufacturer.id}}/delete" method="POST">
-            <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color:red" aria-hidden="true"></i></button>
+            <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color:green" aria-hidden="true"></i></button>
         </form>
     </div>
     

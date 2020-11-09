@@ -30,7 +30,13 @@
 
     <div>
         <label for="manufacturer">Manufacturer:</label>
-        <input type="text" id="manufacturer" name="manufacturer" value="{{product.manufacturer.name}}">
+        <select id="manufacturer" name="manufacturer_id">
+            {% for manufacturer in manufacturers %}
+            <option value="{{ manufacturer.id }}" {% if product.manufacturer.id== manufacturer.id %} selected="selected" {% endif %}>
+                {{ manufacturer.name }}
+            </option>
+            {% endfor %}
+        </select>
     </div>
 
     <button type="submit">Update Product</button>
