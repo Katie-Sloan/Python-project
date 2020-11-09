@@ -5,6 +5,9 @@ from models.manufacturer import Manufacturer
 import repositories.product_repository as product_repository
 import repositories.manufacturer_repository as manufacturer_repository
 
+product_repository.delete_all()
+manufacturer_repository.delete_all()
+
 manufacturer_1 = Manufacturer("Cadbury's")
 manufacturer_repository.save(manufacturer_1)
 manufacturer_2 = Manufacturer("Rowntree's")
