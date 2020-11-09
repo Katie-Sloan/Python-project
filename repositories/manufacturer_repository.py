@@ -2,6 +2,7 @@ from db.run_sql import run_sql
 
 from models.manufacturer import Manufacturer
 from models.product import Product
+import repositories.product_repository as product_repository
 
 def save(manufacturer):
     sql = "INSERT into manufacturers (name) VALUES (%s) RETURNING *"
@@ -18,7 +19,7 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        manufacturer = Manufacturer(row['name'], row['id'])
+        manufacturer = Manufacturer(row['name'])
         manufacturers.append(manufacturer)
     return manufacturers
 
@@ -43,18 +44,18 @@ def delete(id):
 
 def update(manufacturer):
     sql = "UPDATE manufacturers SET (name) = (%s) WHERE id = %s"
-    values = [manufacturer.name]
+    values = [manufacturer.name, manufacturer.id]
     run_sql(sql, values)
 
-def products(manufacturer):
-    products = []
+# def products(manufacturer):
+#     products = []
 
-    sql = "SELECT * FROM products WHERE manufacturer_id = %s"
-    values = [manufacturer.id]
-    results = run_sql(sql, values)
+#     sql = "SELECT * FROM products WHERE manufacturer_id = %s"
+#     values = [manufacturer.id]
+#     results = run_sql(sql, values)
 
-    for row in results:
-        product = Product(row['name'], row['description'], row['stock_quantity'], row['buying_cost'], row['selling_price'], manufacturer)
-        products.append(product)
-    return products
+#     for row in results:
+#         product = Product(row['name'], row['description'], row['stock_quantity'], row['buying_cost'], row['selling_price'], manufacturer)
+#         products.append(product)
+#     return products
 

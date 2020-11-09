@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for manufacturer in manufacturers %}
+    
+    <div>
+        <p>{{manufacturer.name}}</p>
+    </div>
+    
+    <div>
+        <form class= "delete-form" action="/manufacturers/{{manufacturer.id}}/delete" method="POST">
+            <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color:red" aria-hidden="true"></i></button>
+        </form>
+    </div>
+    
+{% endfor %} 
+
+{% endblock content %}
