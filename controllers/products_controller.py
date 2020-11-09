@@ -1,6 +1,7 @@
 from flask import Flask, Blueprint, render_template, request, redirect
 from repositories import product_repository, manufacturer_repository
 from models.product import Product
+from models.manufacturer import Manufacturer
 
 products_blueprint = Blueprint("products", __name__)
 
