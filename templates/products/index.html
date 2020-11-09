@@ -17,14 +17,18 @@
     
     <div>
         <form class= "delete-form" action="/products/{{product.id}}/delete" method="POST">
-            <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color:red" aria-hidden="true"></i></button>
+            <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color:green" aria-hidden="true"></i></button>
         </form>
+        <p>Delete Product From Range</p> 
     </div>
     
     <div>
-        {% if product.stock_quantity < 6 %}
-        <i class="fas fa-exclamation-triangle" style="color:amber" aria-hidden="true"></i>                
-        {% endif %}
+        <p>
+            {% if product.stock_quantity < 6 %}
+                <i class="fa fa-exclamation fa-3x" style="color:red" aria-hidden="true"></i>
+                <p>Warning: low stock</p>              
+            {% endif %}
+        </p>
     </div>
     
 {% endfor %} 
