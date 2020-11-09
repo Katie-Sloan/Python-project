@@ -24,7 +24,10 @@
     
     <div>
         <p>
-            {% if product.stock_quantity < 6 %}
+            {% if product.stock_quantity == 0 %}
+                <i class="fa fa-times fa-2x" aria-hidden="true"></i>
+                <p>Out of stock</p>
+            {% elif product.stock_quantity < 6 %}
                 <i class="fa fa-exclamation fa-3x" style="color:red" aria-hidden="true"></i>
                 <p>Warning: low stock</p>              
             {% endif %}
