@@ -30,7 +30,11 @@
 
     <div>
         <label for="manufacturer">Manufacturer:</label>
-        <input type="text" id="manufacturer" name="manufacturer" placeholder="Manufacturer Name">
+        <select name="manufacturer_id" id="manufacturer">
+            {% for manufacturer in manufacturers %}
+                <option value="{{ manufacturer.id }}">{{ manufacturer.name}}</option>
+            {% endfor %}
+        </select>
     </div>
 
     <button type="submit">Add Product</button>
