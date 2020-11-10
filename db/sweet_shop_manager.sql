@@ -13,5 +13,6 @@ CREATE TABLE products (
     stock_quantity INT,
     buying_cost FLOAT,
     selling_price FLOAT,
+    category VARCHAR(255),
     manufacturer_id INT REFERENCES manufacturers(id) 
 );

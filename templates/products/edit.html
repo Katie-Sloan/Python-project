@@ -29,6 +29,11 @@
     </div>
 
     <div>
+        <label for="category">Category:</label>
+        <input type="text" name="category" id="category" value="{{product.category}}">
+    </div>
+
+    <div>
         <label for="manufacturer">Manufacturer:</label>
         <select id="manufacturer" name="manufacturer_id">
             {% for manufacturer in manufacturers %}

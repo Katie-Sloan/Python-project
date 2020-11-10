@@ -55,7 +55,7 @@ def products(manufacturer):
     results = run_sql(sql, values)
 
     for row in results:
-        product = Product(row['name'], row['description'], row['stock_quantity'], row['buying_cost'], row['selling_price'], row['manufacturer_id'], row['id'])
+        product = Product(row['name'], row['description'], row['stock_quantity'], row['buying_cost'], row['selling_price'], row['category'], row['manufacturer_id'], row['id'])
         products.append(product)
     return products
 
