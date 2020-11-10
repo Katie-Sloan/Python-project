@@ -5,8 +5,8 @@ from models.product import Product
 import repositories.product_repository as product_repository
 
 def save(manufacturer):
-    sql = "INSERT into manufacturers (name) VALUES (%s) RETURNING *"
-    values = [manufacturer.name]
+    sql = "INSERT into manufacturers (name, deactivated) VALUES (%s, %s) RETURNING *"
+    values = [manufacturer.name,  manufacturer.deactivated]
     results = run_sql(sql, values)
     id = results[0]['id']
     manufacturer.id = id
@@ -19,7 +19,7 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        manufacturer = Manufacturer(row['name'], row['id'])
+        manufacturer = Manufacturer(row['name'], row['deactivated'], row['id'])
         manufacturers.append(manufacturer)
     return manufacturers
 
@@ -30,7 +30,7 @@ def select(id):
     result = run_sql(sql, values)[0]
 
     if result is not None:
-        manufacturer = Manufacturer(result['name'], result['id'])
+        manufacturer = Manufacturer(result['name'], result['deactivated'], result['id'])
     return manufacturer
 
 def delete_all():
@@ -43,8 +43,8 @@ def delete(id):
     run_sql(sql, values)
 
 def update(manufacturer):
-    sql = "UPDATE manufacturers SET (name) = (%s) WHERE id = %s"
-    values = [manufacturer.name, manufacturer.id]
+    sql = "UPDATE manufacturers SET (name, deactivated) = (%s, %s) WHERE id = %s"
+    values = [manufacturer.name, manufacturer.deactivated, manufacturer.id]
     run_sql(sql, values)
 
 def products(manufacturer):

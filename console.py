@@ -8,9 +8,9 @@ import repositories.manufacturer_repository as manufacturer_repository
 product_repository.delete_all()
 manufacturer_repository.delete_all()
 
-manufacturer_1 = Manufacturer("Cadbury's")
+manufacturer_1 = Manufacturer("Cadbury's", True)
 manufacturer_repository.save(manufacturer_1)
-manufacturer_2 = Manufacturer("Rowntree's")
+manufacturer_2 = Manufacturer("Rowntree's", False)
 manufacturer_repository.save(manufacturer_2)
 
 manufacturer_repository.select_all()

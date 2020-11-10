@@ -8,6 +8,18 @@
         <input type="text" id="name" name="name" value="{{manufacturer.name}}" required autofocus>
     </div>
 
+    <div>
+        <label for="deactivated">Deactivated:</label>
+        <select name="deactivated" id="deactivated"></select>
+            <option value="true" {% if manufacturer.deactivated == True %} selected="selected" {% endif %} >
+                True
+            </option>
+            <option value="false" {% if manufacturer.deactivated == False %} selected="selected" {% endif %}>
+                False
+            </option>
+        </select>
+    </div>
+
     <button type="submit">Update Manufacturer</button>
 
 </form>

@@ -36,7 +36,7 @@ def edit_manufacturer(id):
 def update_manufacturer(id):
     name = request.form["name"]
 
-    manufacturer = Manufacturer(name)
+    manufacturer = Manufacturer(name, deactivated)
     manufacturer_repository.save(manufacturer)
     return redirect("/manufacturers")
 

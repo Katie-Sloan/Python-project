@@ -3,7 +3,8 @@ DROP TABLE IF EXISTS manufacturers;
 
 CREATE TABLE manufacturers (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(255)
+    name VARCHAR(255),
+    deactivated BOOLEAN
 );
 
 CREATE TABLE products (
