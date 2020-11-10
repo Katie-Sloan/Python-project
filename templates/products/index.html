@@ -2,10 +2,17 @@
 
 {% block content %}
 
-<h3>Filter by:</h3>
+<h3>Filter by manufacturer:</h3>
 {% for manufacturer in manufacturers %}
 <a href="/products/manufacturer/{{manufacturer.id}}">{{manufacturer.name}}</a>
 {% endfor %}
+
+<h3>Filter by category:</h3>
+{% for category in categories %}
+<a href="/products/category/{{category}}">{{category}}</a>         
+{% endfor %}   
+
+<hr>
 
 {% for product in products %}
     

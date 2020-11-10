@@ -1,3 +1,4 @@
+from helpers import get_unique_categories_from_products
 from flask import Flask, Blueprint, render_template, request, redirect
 from repositories import product_repository, manufacturer_repository
 from models.product import Product
@@ -9,7 +10,8 @@ products_blueprint = Blueprint("products", __name__)
 def products():
     products = product_repository.select_all()
     manufacturers = manufacturer_repository.select_all()
-    return render_template("products/index.html", products=products, manufacturers=manufacturers)
+    categories = get_unique_categories_from_products(products)
+    return render_template("products/index.html", products=products, manufacturers=manufacturers, categories=categories)
 
 @products_blueprint.route("/products/add", methods=["GET"])
 def add_product():
@@ -66,11 +68,14 @@ def delete_product(id):
 def list_products_by_manufacturer(id):
     products = product_repository.list_products_by_manufacturer(id)
     manufacturers = manufacturer_repository.select_all()
-    return render_template("products/index.html", products=products, manufacturers=manufacturers)
+    categories = get_unique_categories_from_products(product_repository.select_all())
+    return render_template("products/index.html", products=products, manufacturers=manufacturers, categories=categories)
 
-@products_blueprint.route("/products/filter-by-manufacturer", methods=["GET"])
-def filter_by_manufacturer():
+@products_blueprint.route("/products/category/<category>", methods=["GET"])
+def list_products_by_category(category):
+    products = product_repository.list_products_by_category(category)
     manufacturers = manufacturer_repository.select_all()
-    return render_template
+    categories = get_unique_categories_from_products(product_repository.select_all())
+    return render_template("products/index.html", products=products, manufacturers=manufacturers, categories=categories)
 
 

@@ -62,6 +62,22 @@ def list_products_by_manufacturer(id):
         products.append(product)
     return products
 
+def list_products_by_category(category):
+    products = []
+    
+    sql = "SELECT * FROM products WHERE category = %s"
+    values = [category]
+    results = run_sql(sql, values)
+
+    for row in results:
+        manufacturer = manufacturer_repository.select(row["manufacturer_id"])
+        product = Product(row["name"], row["description"], row["stock_quantity"], row["buying_cost"], row["selling_price"], row["category"], manufacturer, row["id"])
+        if product.category in products:
+            break
+        else:   
+            products.append(product)
+    return products
+
 
 
 
