@@ -37,7 +37,9 @@
         <label for="manufacturer">Manufacturer:</label>
         <select name="manufacturer_id" id="manufacturer">
             {% for manufacturer in manufacturers %}
-                <option value="{{ manufacturer.id }}">{{ manufacturer.name}}</option>
+                {% if manufacturer.deactivated == False %}
+                    <option value="{{ manufacturer.id }}">{{ manufacturer.name}}</option>
+                {% endif %}
             {% endfor %}
         </select>
     </div>
