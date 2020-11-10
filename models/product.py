@@ -8,3 +8,17 @@ class Product:
         self.selling_price = selling_price
         self.manufacturer = manufacturer
         self.id = id
+
+    def calculate_profit(self, product):
+        profit = None
+        profit = self.selling_price - self.buying_cost
+        return round(profit, 2)
+
+    def calculate_markup(self, product):
+        markup = None
+        markup = self.calculate_profit(product)
+        return round((markup / self.buying_cost * 100))
+
+    
+
+

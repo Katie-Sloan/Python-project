@@ -2,6 +2,11 @@
 
 {% block content %}
 
+<h3>Filter by:</h3>
+{% for manufacturer in manufacturers %}
+<a href="/products/manufacturer/{{manufacturer.id}}">{{manufacturer.name}}</a>
+{% endfor %}
+
 {% for product in products %}
     
     <div>
@@ -13,6 +18,7 @@
         <p>{{product.buying_cost}}</p>
         <p>{{product.selling_price}}</p>
         <p>{{product.manufacturer.name}}</p>
+        <p>{{product.calculate_markup(product)}}%</p>
     </div>
     
     <div>

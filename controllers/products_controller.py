@@ -8,7 +8,8 @@ products_blueprint = Blueprint("products", __name__)
 @products_blueprint.route("/products", methods=["GET"])
 def products():
     products = product_repository.select_all()
-    return render_template("products/index.html", products=products)
+    manufacturers = manufacturer_repository.select_all()
+    return render_template("products/index.html", products=products, manufacturers=manufacturers)
 
 @products_blueprint.route("/products/add", methods=["GET"])
 def add_product():
@@ -59,5 +60,15 @@ def delete_product(id):
     product_repository.delete(id)
     return redirect('/products')
 
+@products_blueprint.route("/products/manufacturer/<id>", methods=["GET"])
+def list_products_by_manufacturer(id):
+    products = product_repository.list_products_by_manufacturer(id)
+    manufacturers = manufacturer_repository.select_all()
+    return render_template("products/index.html", products=products, manufacturers=manufacturers)
+
+@products_blueprint.route("/products/filter-by-manufacturer", methods=["GET"])
+def filter_by_manufacturer():
+    manufacturers = manufacturer_repository.select_all()
+    return render_template
 
 

@@ -49,6 +49,23 @@ def update(product):
     values = [product.name, product.description, product.stock_quantity, product.buying_cost, product.selling_price, product.manufacturer.id, product.id]
     run_sql(sql, values)
 
+def list_products_by_manufacturer(id):
+    products = []
+    
+    sql = "SELECT * FROM products WHERE manufacturer_id = %s"
+    values = [id]
+    results = run_sql(sql, values)
+
+    for row in results:
+        manufacturer = manufacturer_repository.select(row["manufacturer_id"])
+        product = Product(row["name"], row["description"], row["stock_quantity"], row["buying_cost"], row["selling_price"], manufacturer, row["id"])
+        products.append(product)
+    return products
+
+
+
+
+
 
 
 
