@@ -9,13 +9,14 @@ Running instructions
 
 The brief
 
-My brief was to create a shop inventory for a shop keeper to keep track of stock.  
+My brief was to create a shop inventory for a shop keeper to keep track of stock.  I was required to be able to create and edit products and manufacturers separately.
 
 Technologies used
+
 - Python
 - HTML
 - CSS
-- FontAwesome
+- Font Awesome
 - Google Fonts
 - Flask 
 - Jinja

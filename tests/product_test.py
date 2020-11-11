@@ -8,7 +8,6 @@ class TestProduct(unittest.TestCase):
     def setUp(self):
         self.manufacturer_1 = Manufacturer("Cadbury's", "PO Box 12, Bournville, Birmingham B30 2LU", True)
         self.product1 = Product("Dairy Milk", "bar of milk chocolate", 5, 0.2, 1, "chocolate bars", self.manufacturer_1) 
-        # self.product2 = Product("Chocolate Buttons", "treatsize chocolate buttons", 3, 0.1, 0.3, "packets", self.manufacturer_1)
 
     def test_product_has_name(self):
         self.assertEqual("Dairy Milk", self.product1.name)
