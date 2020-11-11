@@ -22,8 +22,9 @@ def add_manufacturer():
 @manufacturers_blueprint.route("/manufacturers", methods=["POST"])
 def create_manufacturer():
     name = request.form["name"]
+    deactivated = request.form["deactivated"]
 
-    manufacturer = Manufacturer(name)
+    manufacturer = Manufacturer(name, deactivated)
     manufacturer_repository.save(manufacturer)
     return redirect("/manufacturers")
 
@@ -35,9 +36,10 @@ def edit_manufacturer(id):
 @manufacturers_blueprint.route("/manufacturers/<id>", methods=["POST"])
 def update_manufacturer(id):
     name = request.form["name"]
+    deactivated = request.form["deactivated"]
 
-    manufacturer = Manufacturer(name, deactivated)
-    manufacturer_repository.save(manufacturer)
+    manufacturer = Manufacturer(name, deactivated, id)
+    manufacturer_repository.update(manufacturer)
     return redirect("/manufacturers")
 
 @manufacturers_blueprint.route("/manufacturers/<id>/delete", methods=["POST"])

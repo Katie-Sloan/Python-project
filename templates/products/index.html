@@ -14,8 +14,11 @@
 
 <hr>
 
-{% for product in products %}
-    
+<section class="flex-container">
+
+{% for product in products %}   
+  
+<div class="product-details">
     <div>
         <p>               
             <a href="/products/{{product.id}}">{{product.name}}</a>
@@ -47,7 +50,9 @@
             {% endif %}
         </p>
     </div>
-    
-{% endfor %} 
+</div>
+
+{% endfor %}
+</section>
 
 {% endblock content %}

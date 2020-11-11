@@ -1,0 +1,41 @@
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+body {
+    background: pink; 
+}
+
+body > header > nav > ul {
+    list-style: none;
+    align-items: right;
+    align-self: flex-end;
+    justify-content: right;
+    padding: 0px;
+    margin-right: 50px;
+    border: 0px;
+}
+
+body > header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background: powderblue;
+    justify-content: space-between;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    border-bottom: solid purple 4px;
+}
+
+body > header > h1 {
+    margin: 50px
+}
+
+.product-details {
+    flex: 33%;
+    border: 3px solid black;
+}
+

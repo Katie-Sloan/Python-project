@@ -78,4 +78,3 @@ def list_products_by_category(category):
     categories = get_unique_categories_from_products(product_repository.select_all())
     return render_template("products/index.html", products=products, manufacturers=manufacturers, categories=categories)
 
-

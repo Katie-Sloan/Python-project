@@ -1,4 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
 Welcome to Sweet Shop Manager!
+
+<h3>Suggested promotions:</h3>
+{% for product in products %}
+    <div>
+        <p>
+            {{product.stock_quantity}}
+        </p> 
+    </div>     
+{% endfor %}
+
+<h3>Priority items to re-stock:</h3>
+
 {% endblock content %}   
