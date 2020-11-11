@@ -9,6 +9,11 @@
     </div>
 
     <div>
+        <label for="address">Address:</label>
+        <input type="text" id="name" name="address" value="{{manufacturer.address" required>
+    </div>
+
+    <div>
         <label for="deactivated">Deactivated:</label>
         <select name="deactivated" id="deactivated">
             <option value="true" {% if manufacturer.deactivated == True %} selected="selected" {% endif %} >

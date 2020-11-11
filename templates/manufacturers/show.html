@@ -3,10 +3,22 @@
 {% block content %}
 
 <div>
-<p>{{manufacturer.name}}</p>
-<hr>
+    <p>{{manufacturer.name}}</p>
+    <hr>
+</div>
 
-<p><a href="/manufacturers/{{manufacturer.id}}/edit">Edit</a></p>
+<div>
+    <p>{{manufacturer.address}}</p>
+</div>
+
+<div>
+    <p>{{manufacturer.deactivated}}</p>
+</div>
+
+<div>
+    <p>
+        <a href="/manufacturers/{{manufacturer.id}}/edit">Edit</a>
+    </p>
 </div>
 
 {% endblock content %}

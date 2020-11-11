@@ -4,6 +4,7 @@ DROP TABLE IF EXISTS manufacturers;
 CREATE TABLE manufacturers (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
+    address TEXT,
     deactivated BOOLEAN
 );
 
