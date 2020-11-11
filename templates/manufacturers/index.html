@@ -12,13 +12,18 @@
     
     <div>
         <p>
-            {{manufacturer.address}}
+            Address: {{manufacturer.address}}
         </p>
     </div>
 
     <div>
         <p>
-            {{manufacturer.deactivated}}
+            <span>Is this manufacturer active?:</span> 
+            {% if manufacturer.deactivated == True %}
+                <span>No</span>    
+            {% else %}
+                <span>Yes</span>
+            {% endif %}
         </p>
     </div>
 

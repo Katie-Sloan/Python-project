@@ -16,5 +16,5 @@ CREATE TABLE products (
     buying_cost FLOAT,
     selling_price FLOAT,
     category VARCHAR(255),
-    manufacturer_id INT REFERENCES manufacturers(id) 
+    manufacturer_id INT REFERENCES manufacturers(id) ON DELETE CASCADE
 );

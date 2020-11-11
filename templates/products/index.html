@@ -2,17 +2,23 @@
 
 {% block content %}
 
-<h3>Filter by manufacturer:</h3>
-{% for manufacturer in manufacturers %}
-<a href="/products/manufacturer/{{manufacturer.id}}">{{manufacturer.name}}</a>
-{% endfor %}
+<section class="filters-flex">
 
-<h3>Filter by category:</h3>
-{% for category in categories %}
-<a href="/products/category/{{category}}">{{category}}</a>         
-{% endfor %}   
+<div class="filter-by">
+    <h3>Filter by manufacturer:</h3>
+    {% for manufacturer in manufacturers %}
+    <a href="/products/manufacturer/{{manufacturer.id}}">{{manufacturer.name}}</a>
+    {% endfor %}
+</div>
 
-<hr>
+<div class="filter-by">
+    <h3>Filter by category:</h3>
+    {% for category in categories %}
+    <a href="/products/category/{{category}}">{{category}}</a>         
+    {% endfor %}   
+</div>
+
+</section>
 
 <section class="flex-container">
 
@@ -24,12 +30,12 @@
             <a href="/products/{{product.id}}">{{product.name}}</a>
         </p>
         <p>{{product.description}}</p>
-        <p>{{product.stock_quantity}}</p>
-        <p>{{product.buying_cost}}</p>
-        <p>{{product.selling_price}}</p>
-        <p>{{product.category}}</p>
-        <p>{{product.manufacturer.name}}</p>
-        <p>{{product.calculate_markup(product)}}%</p>
+        <p>Stock quantity: {{product.stock_quantity}}</p>
+        <p>Buying cost: £{{product.buying_cost}}</p>
+        <p>Selling price: £{{product.selling_price}}</p>
+        <p>Category: {{product.category}}</p>
+        <p>Manufacturer: {{product.manufacturer.name}}</p>
+        <p>Markup: {{product.calculate_markup(product)}}%</p>
     </div>
     
     <div>

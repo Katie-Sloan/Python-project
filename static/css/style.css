@@ -6,6 +6,7 @@
 
 body {
     background: pink; 
+    padding: 50px;
 }
 
 body > header > nav > ul {
@@ -27,7 +28,7 @@ body > header {
     padding: 0px;
     margin: 0px;
     border: 0px;
-    border-bottom: solid purple 4px;
+    border: solid black 4px;
 }
 
 body > header > h1 {
@@ -39,3 +40,17 @@ body > header > h1 {
     border: 3px solid black;
 }
 
+.filters-flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.filter-by {
+    flex: 50%;
+    padding-bottom: 50px;
+}
+
+.intro {
+    padding-top: 30px;
+}
