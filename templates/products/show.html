@@ -7,10 +7,11 @@
 <hr>
 <p>{{product.description}}</p>
 <p>Stock quantity: {{product.stock_quantity}}</p>
-<p>Buying cost: {{product.buying_cost}}</p>
-<p>Selling price: {{product.selling_price}}</p>
+<p>Buying cost: £{{product.buying_cost}}</p>
+<p>Selling price: £{{product.selling_price}}</p>
 <p>Category: {{product.category}}</p>
 <p>Manufacturer: {{product.manufacturer.name}}</p>
+<p>Markup: {{product.calculate_markup(product)}}%</p>
 <p><a href="/products/{{product.id}}/edit">Edit</a></p>
 </div>
 
