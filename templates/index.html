@@ -2,15 +2,26 @@
 {% block content %}
 Welcome to Sweet Shop Manager!
 
-<h3>Suggested promotions:</h3>
+<h3>Today's suggested promotions:</h3>
 {% for product in products %}
     <div>
-        <p>
-            {{product.stock_quantity}}
+        <p> 
+            {% if product.stock_quantity > 50 %}
+            <b>{{product.name}}</b> - you have more than 50 units of {{product.name}} in stock.
+            {% endif %}
         </p> 
     </div>     
 {% endfor %}
 
 <h3>Priority items to re-stock:</h3>
-
+{% for product in products %}
+    <div>
+        <p>
+            {% if product.stock_quantity < 10 %}
+            <b>{{product.name}}</b> - you have less than 10 units of {{product.name}} in stock.    
+            {% endif %}
+        </p>
+    </div>
+{% endfor %}
+    
 {% endblock content %}   
