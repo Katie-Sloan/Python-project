@@ -2,10 +2,10 @@
 
 Running instructions
 
-To run the app, enter the following:
-- psql -d sweet_shop_manager -f db/sweet_shop_manager.sql
+To run the app:
+- enter "psql -d sweet_shop_manager -f db/sweet_shop_manager.sql"
 - run the console.py file
-- flask run
+- enter "flask run"
 
 Usage instructions
 
